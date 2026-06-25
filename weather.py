@@ -1,6 +1,7 @@
 import pandas as pd
 import requests
 from datetime import date
+import os
 LATITUDE = 36.0511
 LONGITUDE = -112.1214
 LOCATION_NAME = "Grand Canyon"
@@ -35,6 +36,19 @@ def get_forecast(lat, lon, data_type, forecast_days):
     }
     response = requests.get(url, params=params)
     return response.json()
+def get_current_weather(lat, lon):
+    url = "https://api.open-meteo.com/v1/forecast"
+    params = {
+        "latitude": lat,
+        "longitude": lon,
+        "current": "temperature_2m",
+        "timezone": "auto"
+    }
+    response = requests.get(url, params=params)
+    return response.json()
+current_data = get_current_weather(LATITUDE, LONGITUDE)
+current_temp = current_data["current"]["temperature_2m"]
+current_time = current_data["current"]["time"]
 all_data = []
 for year in range(current_year - 5, current_year):
     start = date(year, CAMP_MONTH, CAMP_START_DAY)
@@ -57,9 +71,17 @@ forecast_df = pd.DataFrame({
     "max_temp": datar["daily"]["temperature_2m_max"],
     "min_temp": datar["daily"]["temperature_2m_min"]
 })
+log_df = pd.DataFrame({
+    "date": [str(today)],
+    "time": [current_time],
+    "temperature_2m": [current_temp]
+})
+log_file = "daily_log.csv"
 historical_df = pd.concat(dfs, ignore_index=True)
 forecast_df.to_csv("forecast_weather.csv")
 historical_df.to_csv("historical_weather.csv")
+log_df.to_csv(log_file, mode='a', header=not os.path.isfile(log_file), index=False)
+print(f"Logged current temperature: {current_temp} degrees C at {current_time}")
 print(f"Weather analysis for {LOCATION_NAME}")
 print("=" * 40)
 print("\n--- Historical Averages (last 5 years, your camping dates) ---")
