@@ -1,0 +1,37 @@
+[33mcommit 935752f67117158797136a2df374116150c01ec5[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: AR-stackoverflow <aarnav.rudraraju@gmail.com>
+Date:   Fri Jun 26 22:22:12 2026 +0000
+
+    created app.py
+
+[33mcommit 29962d3e6d22ff9b686dc00c2522936b071166e8[m
+Author: AR-stackoverflow <aarnav.rudraraju@gmail.com>
+Date:   Fri Jun 26 10:39:47 2026 -0700
+
+    Update weather-agent.yml
+    
+    Now the dashboard is saved
+
+[33mcommit 2534f392db8590df8886b4367b2fca8b41dece46[m
+Author: AR-stackoverflow <aarnav.rudraraju@gmail.com>
+Date:   Thu Jun 25 11:24:35 2026 -0700
+
+    Update weather-agent.yml
+    
+    added daily_log.csv
+
+[33mcommit 8a3edab5d9f3fa2be55b8b22da3d41ea737f7c66[m
+Author: AR-stackoverflow <aarnav.rudraraju@gmail.com>
+Date:   Thu Jun 25 10:57:20 2026 -0700
+
+    Update weather-agent.yml
+    
+    fixed a mistake
+
+[33mcommit 9bf7a779c775b305c24b9353c4a557668acb1966[m
+Author: AR-stackoverflow <aarnav.rudraraju@gmail.com>
+Date:   Thu Jun 25 10:50:56 2026 -0700
+
+    Create weather-agent.yml
+    
+    Add weather agent workflow
