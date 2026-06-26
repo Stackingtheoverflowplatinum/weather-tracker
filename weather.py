@@ -71,10 +71,13 @@ forecast_df = pd.DataFrame({
     "max_temp": datar["daily"]["temperature_2m_max"],
     "min_temp": datar["daily"]["temperature_2m_min"]
 })
+temp_c = current_temp
+temp_f = round(temp_c * 9/5 + 32, 1)
 log_df = pd.DataFrame({
     "date": [str(today)],
     "time": [current_time],
-    "temperature_2m": [current_temp]
+    "temperature_2m": [temp_c]
+    "temp_f": [temp_f]
 })
 log_file = "daily_log.csv"
 historical_df = pd.concat(dfs, ignore_index=True)
